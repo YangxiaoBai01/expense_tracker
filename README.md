@@ -26,19 +26,33 @@ This project is part of **INFO 101: Introduction to Informatics**, a course desi
 
 ## Getting Started
 
+> Make sure you have **Python 3** installed. You can download it at https://www.python.org/downloads/
+
 1. Clone the repository:
    ```bash
-   git clone git@github.com:YangxiaoBai01/expense_tracker.git
+   git clone https://github.com/YangxiaoBai01/expense_tracker.git
+   cd expense_tracker
    ```
-2. Install dependencies:
+
+2. (Recommended) Create a virtual environment:
+   ```bash
+   python -m venv venv
+   ```
+   Activate it:
+   - **Mac/Linux:** `source venv/bin/activate`
+   - **Windows:** `venv\Scripts\activate`
+
+3. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-3. Run the application:
+
+4. Run the application:
    ```bash
    python app.py
    ```
-4. Open your browser and go to `http://localhost:5000`
+
+5. Open your browser and go to `http://localhost:5000`
 
 ## Disclaimer
 
