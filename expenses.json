@@ -3,5 +3,15 @@
     "amount": 10.0,
     "category": "food",
     "note": "none"
+  },
+  {
+    "amount": 14.66,
+    "category": "food",
+    "note": "none"
+  },
+  {
+    "amount": 37.74,
+    "category": "food",
+    "note": "none"
   }
 ]

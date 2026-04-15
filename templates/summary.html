@@ -1,5 +1,37 @@
-<h2>Total: ${{ total }}</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
 
-{% for c, v in category_totals.items() %}
-    <p>{{ c }}: ${{ v }}</p>
-{% endfor %}
+<div class="container mt-5">
+    <h1 class="mb-4">📊 Summary</h1>
+
+    <!-- Total Card -->
+    <div class="card mb-4 text-center">
+        <div class="card-body">
+            <h5 class="card-title text-muted">Total Spent</h5>
+            <h2 class="text-primary">${{ total }}</h2>
+        </div>
+    </div>
+
+    <!-- By Category Card -->
+    <div class="card mb-4">
+        <div class="card-header">By Category</div>
+        <ul class="list-group list-group-flush">
+        {% for c, v in category_totals.items() %}
+            <li class="list-group-item d-flex justify-content-between">
+                <span>{{ c }}</span>
+                <strong>${{ v }}</strong>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <a href="/" class="btn btn-outline-primary">← Back</a>
+</div>
+
+</body>
+</html>

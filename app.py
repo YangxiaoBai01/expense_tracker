@@ -3,7 +3,19 @@ from flask import request, redirect, url_for
 from flask import Flask
 import os
 import json
+import urllib.request
 app = Flask(__name__)
+
+
+def convert_to_usd(amount, currency):
+    if currency == "USD":
+        return amount
+    url = f"https://api.frankfurter.app/latest?from={currency}&to=USD"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    response = urllib.request.urlopen(req)
+    data = json.loads(response.read())
+    rate = data["rates"]["USD"]
+    return round(amount * rate, 2)
 
 
 def load_expenses():
@@ -47,11 +59,14 @@ def index():
 @app.route("/add", methods=["POST"])
 def add():
     amount = float(request.form["amount"])
+    currency = request.form["currency"]
     category = request.form["category"]
     note = request.form["note"]
-    
+
+    amount_usd = convert_to_usd(amount, currency)
+
     record = {}
-    record["amount"] = amount
+    record["amount"] = amount_usd
     record["category"] = category
     record["note"] = note
     expenses.append(record)
